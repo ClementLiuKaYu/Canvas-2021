@@ -19,6 +19,7 @@ class DrawingLine extends PaintFunction {
     this.context.strokeStyle = "#df4b26";
     // Kind of line
     this.context.lineJoin = "round";
+    this.context.lineCap = "round"
     // Width of line
     this.context.lineWidth = 5;
     // Drawing the line here
