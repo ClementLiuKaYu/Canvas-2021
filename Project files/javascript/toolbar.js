@@ -1,4 +1,5 @@
 $(()=>{
+  $(".pickr .pcr-button::before").css("border-radius",0)
   // Page initialization
   currentFunction =  new DrawingLine(contextReal)
   $(".button-drop-down").hide()
