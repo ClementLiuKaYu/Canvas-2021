@@ -11,10 +11,12 @@ let currentFunction;
 let dragging = false;
 
 $("#canvas-draft").mousedown(function (e) {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseDown([mouseX, mouseY], e);
-  dragging = true;
+  if (e.which == 1){
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseDown([mouseX, mouseY], e);
+    dragging = true;
+  }
 });
 
 $("#canvas-draft").mousemove(function (e) {
@@ -27,10 +29,12 @@ $("#canvas-draft").mousemove(function (e) {
 });
 
 $("#canvas-draft").mouseup(function (e) {
-  dragging = false;
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseUp([mouseX, mouseY], e);
+  if (e.which == 1){
+    dragging = false;
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseUp([mouseX, mouseY], e);
+  }
 });
 
 $("#canvas-draft").mouseleave(function (e) {

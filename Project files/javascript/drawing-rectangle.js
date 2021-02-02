@@ -13,12 +13,14 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
+    this.origX = coord[0];
+    this.origY = coord[1];
     this.contextDraft.strokeStyle = lineColor;
     this.contextReal.strokeStyle = lineColor;
     this.contextDraft.fillStyle = fillColor;
     this.contextReal.fillStyle = fillColor;
-    this.origX = coord[0];
-    this.origY = coord[1];
+    this.contextDraft.lineWidth = $('input[id="line-size"]').val();
+    this.contextReal.lineWidth = $('input[id="line-size"]').val();
   }
 
   onDragging(coord, event) {

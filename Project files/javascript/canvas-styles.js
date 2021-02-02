@@ -53,3 +53,10 @@ pickr1.on('save',(...args) => {
 pickr2.on('save',(...args) => {
     lineColor = args[0].toRGBA().toString(3)
 })
+
+// indicator box
+$('input[id="line-size"]').on('change',(e) => {
+    console.log($('input[id="line-size"]').val())
+    $('.ind-box').css('height',$('input[id="line-size"]').val())
+    $('.ind-box').css('width',$('input[id="line-size"]').val())
+})
