@@ -29,12 +29,19 @@ class DrawingRectangle extends PaintFunction {
       canvasDraft.height
     );
     // Pass in the original x and y coordinates, followed by the new coordinates that we get for position x and y
+    $('input[id="fill-check"]')[0].checked ? 
     this.contextDraft.fillRect(
       this.origX,
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY
-    );
+    ):
+    this.contextDraft.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    )
   }
 
   onMouseMove() {}
@@ -50,12 +57,19 @@ class DrawingRectangle extends PaintFunction {
     );
     // Commit that drawing to context real
     // Without this commit, it won't actually draw
+    $('input[id="fill-check"]')[0].checked ? 
     this.contextReal.fillRect(
       this.origX,
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY
-    );
+    ):
+    this.contextReal.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    )
   }
   onMouseLeave() {}
   onMouseEnter() {}

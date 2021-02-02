@@ -1,6 +1,9 @@
 let fillColor = '#42445a'
 let lineColor = '#42445a'
-
+contextDraft.lineJoin ="round"
+contextReal.lineJoin ="round"
+contextDraft.lineCap ="round"
+contextReal.lineCap ="round"
 // pickr setup
 
 const pickr1 = new Pickr({
