@@ -11,39 +11,49 @@ let currentFunction;
 let dragging = false;
 
 $("#canvas-draft").mousedown(function (e) {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseDown([mouseX, mouseY], e);
-  dragging = true;
+  if (e.which == 1){
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseDown([mouseX, mouseY], e);
+    dragging = true;
+  }
 });
 
 $("#canvas-draft").mousemove(function (e) {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  if (dragging) {
-    currentFunction.onDragging([mouseX, mouseY], e);
+  if (e.which == 1){
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    if (dragging) {
+      currentFunction.onDragging([mouseX, mouseY], e);
+    }
+    currentFunction.onMouseMove([mouseX, mouseY], e);
   }
-  currentFunction.onMouseMove([mouseX, mouseY], e);
 });
 
 $("#canvas-draft").mouseup(function (e) {
-  dragging = false;
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseUp([mouseX, mouseY], e);
+  if (e.which == 1){
+    dragging = false;
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseUp([mouseX, mouseY], e);
+  }
 });
 
 $("#canvas-draft").mouseleave(function (e) {
-  dragging = false;
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseLeave([mouseX, mouseY], e);
+  if (e.which == 1){
+    dragging = false;
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseLeave([mouseX, mouseY], e);
+  }
 });
 
 $("#canvas-draft").mouseenter(function (e) {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
-  currentFunction.onMouseEnter([mouseX, mouseY], e);
+  if (e.which == 1){
+    let mouseX = e.offsetX;
+    let mouseY = e.offsetY;
+    currentFunction.onMouseEnter([mouseX, mouseY], e);
+  }
 });
 
 /** # Class (all classes will have these methods) #
