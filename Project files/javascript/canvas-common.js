@@ -20,14 +20,12 @@ $("#canvas-draft").mousedown(function (e) {
 });
 
 $("#canvas-draft").mousemove(function (e) {
-  if (e.which == 1){
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    if (dragging) {
-      currentFunction.onDragging([mouseX, mouseY], e);
-    }
-    currentFunction.onMouseMove([mouseX, mouseY], e);
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  if (dragging) {
+    currentFunction.onDragging([mouseX, mouseY], e);
   }
+  currentFunction.onMouseMove([mouseX, mouseY], e);
 });
 
 $("#canvas-draft").mouseup(function (e) {
@@ -40,20 +38,16 @@ $("#canvas-draft").mouseup(function (e) {
 });
 
 $("#canvas-draft").mouseleave(function (e) {
-  if (e.which == 1){
-    dragging = false;
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseLeave([mouseX, mouseY], e);
-  }
+  dragging = false;
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseLeave([mouseX, mouseY], e);
 });
 
 $("#canvas-draft").mouseenter(function (e) {
-  if (e.which == 1){
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseEnter([mouseX, mouseY], e);
-  }
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
 /** # Class (all classes will have these methods) #

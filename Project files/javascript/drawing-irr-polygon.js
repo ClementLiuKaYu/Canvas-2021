@@ -15,6 +15,8 @@ onMouseDown(coord, event){
     this.contextReal.strokeStyle = lineColor;
     this.contextDraft.fillStyle = fillColor;
     this.contextReal.fillStyle = fillColor;
+    this.contextDraft.lineWidth = $('input[id="line-size"]').val();
+    this.contextReal.lineWidth = $('input[id="line-size"]').val();
       this.origX = coord[0];
       this.origY = coord[1];
       this.start = true
