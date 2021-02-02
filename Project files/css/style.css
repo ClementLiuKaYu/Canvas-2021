@@ -1,5 +1,168 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.toolbar{
+  height: 100vh;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #202020;
+  box-shadow: 5px 0px 20px 5px white;
+}
+
+.buttons-container{
+  height: calc(100vh - 300px);
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-inner-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 190px;
+}
+
+.buttons-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.buttons-container::-webkit-scrollbar-track {
+  background: #202020;
+}
+
+.buttons-container::-webkit-scrollbar-thumb {
+  background-color: #505050;
+  border-radius: 20px;
+  border: 3px solid #202020;
+}
+
+.buttons-row{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 6px 0;
+}
+
+.button{
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover{
+  background-color: rgba(255,255,255,0.5);
+}
+
+.button i{
+  color: white;
+}
+
+.button-drop-down{
+  height: 200px;
+  width: 100%;
+  background-color: #353535;
+  border-top: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+}
+
+.brush{
+  height: 200px;
+  width: 100%;
+  background-color: #353535;
+}
+
+.curve{
+  height: 200px;
+  width: 100%;
+  background-color: #353535;
+}
+
+.settings{
+  height: 150px;
+  width: 100%;
+  border-top: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  padding: 5px 10px;
+}
+
+.settings p{
+  color: #808080;
+  display: inline;
+}
+
+.line-size{
+  height: 25px;
+  width: 100%;
+}
+
+.line-color, .fill-color, .fill-check{
+  height: 25px;
+  width: 50%;
+}
+
+input[type="color" i]{
+  height: 20px;
+  width: 15px;
+  border: 0;
+  padding: 0;
+  color: transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.size-indicator{
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #404040;
+}
+
+.instructions{
+  height: 90px;
+  width: calc(100%-10px);
+  margin: 5px;
+  padding: 5px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.canvas-container{
+  height: 100vh;
+  width: calc(100vw - 200px);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #404040;
+}
+
+.canvas-inner-container{
+  height: calc(100vh - 20px);
+  width: calc(100vw - 220px);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  overflow: auto;
+}
+
 .canvas {
-  border: 1px black dotted;
+  border: 1px black;
+  background-color: transparent;
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -7,12 +170,25 @@
   right: 0px;
 }
 
+/* .canvas:hover{
+  cursor: none ;
+} */
+
 #canvas-draft {
-  background-color: transparent;
+  z-index: 1;
 }
-body {
-  overflow: hidden;
+
+.canvas-inner-container::-webkit-scrollbar {
+  height: 12px;
+  width: 12px;
 }
-#canvas-container {
-  height: 720px;
+
+.canvas-inner-container::-webkit-scrollbar-track {
+  background: white;
+}
+
+.canvas-inner-container::-webkit-scrollbar-thumb {
+  background-color: #707070;
+  border-radius: 20px;
+  border: 3px solid white;
 }

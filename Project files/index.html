@@ -8,77 +8,92 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-   
   </head>
   <body class="container">
-    <h1>Canvas Application</h1>
-    <div id="canvas-container">
-      <canvas
-        id="canvas-real"
-        class="canvas"
-        width="1280px"
-        height="720px"
-      ></canvas>
-      <canvas
-        id="canvas-draft"
-        class="canvas"
-        width="1280px"
-        height="720px"
-      ></canvas>
+    <!-- Toolbar-left -->
+    <div class="toolbar">
+      <div class="buttons-container">
+        <div class="buttons-inner-container">
+          <div class="buttons-row">
+            <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
+            <div class="button" id="straight-line"><i class="fas fa-minus fa-lg"></i></div>
+            <div class="button" id="curve"><img src="./assets/curve.png" alt="curve" height="16px"></div>
+          </div>
+          <div class="button-drop-down brush"></div>
+          <div class="button-drop-down curve"></div>
+          <div class="buttons-row">
+            <div class="button" id="square"><i class="far fa-square fa-lg"></i></div>
+            <div class="button" id="polygon"><i class="fas fa-draw-polygon fa-lg"></i></div>
+            <div class="button" id="circle"><i class="far fa-circle fa-lg"></i></div>
+          </div>
+          <div class="button-drop-down square"></div>
+          <div class="button-drop-down polygon"></div>
+          <div class="button-drop-down circle"></div>
+          <div class="buttons-row">
+            <div class="button" id="eraser"><i class="fas fa-eraser fa-lg"></i></div>
+            <div class="button" id=""></div>
+            <div class="button" id=""></div>
+          </div>
+          <div class="buttons-row">
+            <div class="button" id=""></div>
+            <div class="button" id=""></div>
+            <div class="button" id=""></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings">
+        <div class="line-size"><p>Line size:</p><input type="range" min="1" max="50" value="1" step="1" id="line-size"></div>
+        <div class="line-color"><p>Line color:</p><input type="color" value="#ffffff" id="line-color"></div>
+        <div class="fill-color"><p>Fill color:</p><input type="color" value="#ffffff" id="fill-color"></div>
+        <div class="fill-check"><p>Fill check:</p><input type="checkbox" id="fill-check"></div>
+      </div>
+      
+      <div class="size-indicator">
+
+      </div>
+
+      <div class="instructions">
+
+      </div>
     </div>
-    <div class="buttons">
-      <!-- The drawing rectangle button  -->
-      <span class="btn btn-primary fa fa-square" id="drawing-rectangle"
-        >Draw Rectangle</span
-      >
-      <!-- The drawing line button  -->
-      <span class="btn btn-info fa fa-paint-brush" id="drawing-line"
-        >Draw Line</span
-      > 
-      <!-- jQuery -->
-      <script
-      src="https://code.jquery.com/jquery-3.5.1.js"
-      integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-      crossorigin="anonymous"
-    ></script>
+
+    <div class="canvas-container">
+      <div class="canvas-inner-container">
+        <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
+        <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/8857d52862.js" crossorigin="anonymous"></script>
     <!-- The drawing functionality  -->
-    <script
-      src="./javascript/canvas-common.js"
-      type="text/javascript"
-      async
-      defer
-    ></script>
+    <script src="./javascript/canvas-common.js" type="text/javascript" async defer></script>
 
     <!-- The drawing line functionality  -->
-    <script
-      src="./javascript/drawing-line.js"
-      type="text/javascript"
-      async
-      defer
-    ></script>
+    <script src="./javascript/drawing-line.js" type="text/javascript" async defer></script>
+    <!-- The drawing straight line functionality  -->
+    <script src="./javascript/drawing-straight-line.js" type="text/javascript" async defer></script>
+    <!-- The drawing quad curve functionality  -->
+    <script src="./javascript/drawing-quad-curve.js" type="text/javascript" async defer></script>
+    <!-- The drawing bezier curve functionality  -->
+    <script src="./javascript/drawing-bezier-curve.js" type="text/javascript" async defer></script>
     <!-- The drawing rectangle functionality  -->
-    <script
-      src="./javascript/drawing-rectangle.js"
-      type="text/javascript"
-      async
-      defer
-    ></script>
-    <script type="text/javascript">
-    $(()=>{
-      currentFunction =  new DrawingLine(contextReal)
-      $("#drawing-rectangle").click(() => {
-        currentFunction = new DrawingRectangle(contextReal, contextDraft);
-      });
-      $("#drawing-line").click(() => {
-        currentFunction = new DrawingLine(contextReal);
-      });  
-    })
-    </script>
+    <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script>
+    <!-- The drawing regular polygon functionality  -->
+    <script src="./javascript/drawing-regular-polygon.js" type="text/javascript" async defer></script>
+    <!-- The drawing irr-polygon functionality  -->
+    <script src="./javascript/drawing-irr-polygon.js" type="text/javascript" async defer></script>
+    <!-- The drawing circle functionality  -->
+    <script src="./javascript/drawing-circle.js" type="text/javascript" async defer></script>
+    <!-- The drawing rectangle functionality  -->
+    <!-- <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script> -->
+    <!-- The drawing rectangle functionality  -->
+    <!-- <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script> -->
+    <!-- Toolbar controller -->
+    <script src="./javascript/toolbar.js" type="text/javascript" async defer></script>
   </body>
 </html>
