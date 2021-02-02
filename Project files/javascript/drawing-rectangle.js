@@ -13,15 +13,15 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.fillStyle = "#f44";
+    this.contextDraft.strokeStyle = lineColor;
+    this.contextReal.strokeStyle = lineColor;
+    this.contextDraft.fillStyle = fillColor;
+    this.contextReal.fillStyle = fillColor;
     this.origX = coord[0];
     this.origY = coord[1];
   }
 
   onDragging(coord, event) {
-    // Manipulating the context draft
-    this.contextDraft.fillStyle = "#f44";
-    // Allows you to actually draw out your squares
     this.contextDraft.clearRect(
       0,
       0,
@@ -29,12 +29,19 @@ class DrawingRectangle extends PaintFunction {
       canvasDraft.height
     );
     // Pass in the original x and y coordinates, followed by the new coordinates that we get for position x and y
+    $('input[id="fill-check"]')[0].checked ? 
     this.contextDraft.fillRect(
       this.origX,
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY
-    );
+    ):
+    this.contextDraft.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    )
   }
 
   onMouseMove() {}
@@ -50,12 +57,19 @@ class DrawingRectangle extends PaintFunction {
     );
     // Commit that drawing to context real
     // Without this commit, it won't actually draw
+    $('input[id="fill-check"]')[0].checked ? 
     this.contextReal.fillRect(
       this.origX,
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY
-    );
+    ):
+    this.contextReal.strokeRect(
+      this.origX,
+      this.origY,
+      coord[0] - this.origX,
+      coord[1] - this.origY
+    )
   }
   onMouseLeave() {}
   onMouseEnter() {}

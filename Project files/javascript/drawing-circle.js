@@ -6,15 +6,15 @@ class DrawingCircle extends PaintFunction {
     }
 
     onMouseDown(coord, event) {
-        this.contextDraft.fillStyle = "#f44";
-        this.contextReal.fillStyle = "#f44";
+        this.contextDraft.strokeStyle = lineColor;
+        this.contextReal.strokeStyle = lineColor;
+        this.contextDraft.fillStyle = fillColor;
+        this.contextReal.fillStyle = fillColor;
         this.origX = coord[0];
         this.origY = coord[1];
     }
   
     onDragging(coord, event) {
-        this.contextDraft.fillStyle = "#f44";
-        this.contextReal.fillStyle = "#f44";
         this.contextDraft.clearRect(
         0,
         0,
@@ -29,7 +29,7 @@ class DrawingCircle extends PaintFunction {
         0,
         2 * Math.PI
         );
-        this.contextDraft.fill()
+        $('input[id="fill-check"]')[0].checked ? this.contextDraft.fill() : this.contextDraft.stroke()
     }
   
     onMouseMove() {}
@@ -49,7 +49,7 @@ class DrawingCircle extends PaintFunction {
         0,
         2 * Math.PI
         );
-        this.contextReal.fill()
+        $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
     }
 
     onMouseLeave() {}

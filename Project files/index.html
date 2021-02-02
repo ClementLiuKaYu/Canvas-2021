@@ -7,11 +7,17 @@
     <title></title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
   </head>
   <body class="container">
     <!-- Toolbar-left -->
     <div class="toolbar">
+            
+      <div class="bar">
+
+      </div>
+
       <div class="buttons-container">
         <div class="buttons-inner-container">
           <div class="buttons-row">
@@ -42,15 +48,12 @@
         </div>
       </div>
 
-      <div class="settings">
-        <div class="line-size"><p>Line size:</p><input type="range" min="1" max="50" value="1" step="1" id="line-size"></div>
-        <div class="line-color"><p>Line color:</p><input type="color" value="#ffffff" id="line-color"></div>
-        <div class="fill-color"><p>Fill color:</p><input type="color" value="#ffffff" id="fill-color"></div>
+      <div class="style">
         <div class="fill-check"><p>Fill check:</p><input type="checkbox" id="fill-check"></div>
-      </div>
-      
-      <div class="size-indicator">
-
+        <div class="fill-color"><p>Fill color:</p><div class="color-picker1"></div></div>
+        <div class="line-color"><p>Line color:</p><div class="color-picker2"></div></div>
+        <div class="line-size"><p>Line size:</p><div class="slider-container"><input type="range" min="1" max="50" value="1" step="1" class="slider" id="line-size"></div></div>
+        <div class="size-indicator"></div>
       </div>
 
       <div class="instructions">
@@ -66,33 +69,52 @@
     </div>
 
     <!-- Scripts -->
+    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/8857d52862.js" crossorigin="anonymous"></script>
+
+    <!-- pickr -->
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
     <!-- The drawing functionality  -->
     <script src="./javascript/canvas-common.js" type="text/javascript" async defer></script>
 
+        <!-- The drawing functionality  -->
+        <script src="./javascript/canvas-styles.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing line functionality  -->
     <script src="./javascript/drawing-line.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing straight line functionality  -->
     <script src="./javascript/drawing-straight-line.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing quad curve functionality  -->
     <script src="./javascript/drawing-quad-curve.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing bezier curve functionality  -->
     <script src="./javascript/drawing-bezier-curve.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing rectangle functionality  -->
     <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing regular polygon functionality  -->
     <script src="./javascript/drawing-regular-polygon.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing irr-polygon functionality  -->
     <script src="./javascript/drawing-irr-polygon.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing circle functionality  -->
     <script src="./javascript/drawing-circle.js" type="text/javascript" async defer></script>
+    
     <!-- The drawing rectangle functionality  -->
     <!-- <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script> -->
+    
     <!-- The drawing rectangle functionality  -->
     <!-- <script src="./javascript/drawing-rectangle.js" type="text/javascript" async defer></script> -->
+    
     <!-- Toolbar controller -->
     <script src="./javascript/toolbar.js" type="text/javascript" async defer></script>
   </body>

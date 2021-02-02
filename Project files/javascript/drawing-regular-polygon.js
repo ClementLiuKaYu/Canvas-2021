@@ -10,6 +10,10 @@ class DrawingPolygon extends PaintFunction {
     onMouseDown(coord, event) {
         this.origX = coord[0];
         this.origY = coord[1];
+        this.contextDraft.strokeStyle = lineColor;
+        this.contextReal.strokeStyle = lineColor;
+        this.contextDraft.fillStyle = fillColor;
+        this.contextReal.fillStyle = fillColor;
     }
 
     onDragging(coord, event) {
@@ -36,7 +40,7 @@ class DrawingPolygon extends PaintFunction {
             );
           }
         }
-        this.contextDraft.stroke();
+        $('input[id="fill-check"]')[0].checked ? this.contextDraft.fill() : this.contextDraft.stroke()
     }
 
     onMouseMove() {}
@@ -65,7 +69,7 @@ class DrawingPolygon extends PaintFunction {
             );
           }
         }
-        this.contextReal.stroke();
+        $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
     }
 
     onMouseLeave() {}

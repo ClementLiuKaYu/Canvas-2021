@@ -11,6 +11,10 @@ class DrawingIrrPolygon extends PaintFunction {
 
 onMouseDown(coord, event){
   if(this.start === false) {
+    this.contextDraft.strokeStyle = lineColor;
+    this.contextReal.strokeStyle = lineColor;
+    this.contextDraft.fillStyle = fillColor;
+    this.contextReal.fillStyle = fillColor;
       this.origX = coord[0];
       this.origY = coord[1];
       this.start = true
@@ -28,7 +32,7 @@ onMouseDown(coord, event){
       this.contextReal.lineTo(this.coords[i][0], this.coords[i][1]);
     }
     this.contextReal.closePath();
-    this.contextReal.stroke();
+    $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
     this.start = false;
     this.coords = [];
   }else{
@@ -55,7 +59,7 @@ onMouseMove(coord, event){
     }
     this.contextDraft.lineTo(coord[0],coord[1])
     this.contextDraft.closePath()
-    this.contextDraft.stroke()
+    $('input[id="fill-check"]')[0].checked ? this.contextDraft.fill() : this.contextDraft.stroke()
   }
 }
 

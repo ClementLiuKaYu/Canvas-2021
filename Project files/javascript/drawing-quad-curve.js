@@ -9,10 +9,15 @@ class DrawingQuadCurve extends PaintFunction {
 
   onMouseDown(coord, event) {
     if (this.firstLine){
-      this.contextReal.strokeStyle = "#444";
       this.origX = coord[0];
       this.origY = coord[1];
       this.start = true
+      this.contextDraft.strokeStyle = lineColor;
+      this.contextReal.strokeStyle = lineColor;
+      this.contextDraft.fillStyle = fillColor;
+      this.contextReal.fillStyle = fillColor;
+      this.contextDraft.lineWidth = $('input[id="line-size"]').val();
+      this.contextReal.lineWidth = $('input[id="line-size"]').val();
     }
   }
   

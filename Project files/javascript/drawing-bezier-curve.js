@@ -10,7 +10,10 @@ class DrawingBezierCurve extends PaintFunction {
   
     onMouseDown(coord, event) {
       if (this.firstLine){
-        this.contextReal.strokeStyle = "#444";
+        this.contextDraft.strokeStyle = lineColor;
+        this.contextReal.strokeStyle = lineColor;
+        this.contextDraft.lineWidth = $('input[id="line-size"]').val();
+        this.contextReal.lineWidth = $('input[id="line-size"]').val();
         this.origX = coord[0];
         this.origY = coord[1];
         this.start = true
