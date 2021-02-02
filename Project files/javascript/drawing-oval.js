@@ -1,16 +1,20 @@
-class DrawingCircle extends PaintFunction {
+class DrawingOval extends PaintFunction {
+    // This class extends the PaintFunction class
+    // You are only passing one instance here
+  
     constructor(contextReal,contextDraft) {
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
     }
+  
     onMouseDown(coord, event) {
         this.contextDraft.fillStyle = "#f44";
         this.contextReal.fillStyle = "#f44";
         this.origX = coord[0];
         this.origY = coord[1];
     }
-      
+  
     onDragging(coord, event) {
         this.contextDraft.fillStyle = "#f44";
         this.contextReal.fillStyle = "#f44";
@@ -21,18 +25,20 @@ class DrawingCircle extends PaintFunction {
         canvasDraft.height
         );
         this.contextDraft.beginPath()
-        this.contextDraft.arc(
+        this.contextDraft.ellipse(
         this.origX,
         this.origY,
-        Math.sqrt(Math.pow(this.origX-coord[0],2)+Math.pow(this.origY-coord[1],2)),
+        Math.abs(coord[0]-this.origX),
+        Math.abs(coord[1]-this.origY),
+        0,
         0,
         2 * Math.PI
         );
         this.contextDraft.fill()
     }
-      
+  
     onMouseMove() {}
-      
+  
     onMouseUp(coord) {
         this.contextDraft.clearRect(
         0,
@@ -41,17 +47,19 @@ class DrawingCircle extends PaintFunction {
         canvasDraft.height
         );
         this.contextReal.beginPath()
-        this.contextReal.arc(
+        this.contextReal.ellipse(
         this.origX,
         this.origY,
-        Math.sqrt(Math.pow(this.origX-coord[0],2)+Math.pow(this.origY-coord[1],2)),
+        Math.abs(coord[0]-this.origX),
+        Math.abs(coord[1]-this.origY),
+        0,
         0,
         2 * Math.PI
         );
         this.contextReal.fill()
     }
-      
+  
     onMouseLeave() {}
-    onMouseEnter() {}      
+    onMouseEnter() {}
 
 }
