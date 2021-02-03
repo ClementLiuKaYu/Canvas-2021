@@ -20,23 +20,23 @@ class MarkerBrush extends PaintFunction {
         this.contextReal.globalAlpha = 1;
 
         this.contextReal.moveTo(lastPoint.x, lastPoint.y);
-        this.contextReal.lineTo(event.clientX, event.clientY);
+        this.contextReal.lineTo(lastPoint[0], lastPoint[1]);
         this.contextReal.stroke();
 
         this.contextReal.moveTo(lastPoint.x - 4, lastPoint.y - 4);
-        this.contextReal.lineTo(event.clientX - 4, event.clientY - 4);
+        this.contextReal.lineTo(lastPoint[0] - 4, lastPoint[1] - 4);
         this.contextReal.stroke();
 
         this.contextReal.moveTo(lastPoint.x - 2, lastPoint.y - 2);
-        this.contextReal.lineTo(event.clientX - 2, event.clientY - 2);
+        this.contextReal.lineTo(lastPoint[0] - 2, lastPoint[1] - 2);
         this.contextReal.stroke();
 
         this.contextReal.moveTo(lastPoint.x + 2, lastPoint.y + 2);
-        this.contextReal.lineTo(event.clientX + 2, event.clientY + 2);
+        this.contextReal.lineTo(lastPoint[0] + 2, lastPoint[1] + 2);
         this.contextReal.stroke();
     
         this.contextReal.moveTo(lastPoint.x + 4, lastPoint.y + 4);
-        this.contextReal.lineTo(event.clientX + 4, event.clientY + 4);
+        this.contextReal.lineTo(lastPoint[0] + 4, lastPoint[1] + 4);
         this.contextReal.stroke();
       
         lastPoint = { x: event.clientX, y: event.clientY };

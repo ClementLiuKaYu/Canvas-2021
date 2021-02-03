@@ -12,6 +12,7 @@ class CrayonBrush extends PaintFunction {
     onMouseDown(lastPoint,event) {
         isDrawing = true;
         lastPoint = { x: event.clientX, y: event.clientY };
+        console.log(lastPoint)
     }
 
     onMouseMove(lastPoint,event) {
@@ -19,11 +20,11 @@ class CrayonBrush extends PaintFunction {
 
         this.contextReal.beginPath();
         this.contextReal.moveTo(lastPoint.x, lastPoint.y);
-        this.contextReal.lineTo(event.clientX, event.clientY);
+        this.contextReal.lineTo(lastPoint[0], lastPoint[1]);
         this.contextReal.stroke();
 
         this.contextReal.moveTo(lastPoint.x - 5, lastPoint.y - 5);
-        this.contextReal.lineTo(event.clientX - 5, event.clientY - 5);
+        this.contextReal.lineTo(lastPoint[0] - 5, lastPoint[1] - 5);
         this.contextReal.stroke();
 
         lastPoint = { x: event.clientX, y: event.clientY };

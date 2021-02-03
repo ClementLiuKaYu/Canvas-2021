@@ -82,13 +82,17 @@ body {
 .button-drop-down{
   height: 150px;
   width: 100%;
-  background-color: #353535;
+  background-color: #FFF;
   border-top: 1px solid #404040;
   border-bottom: 1px solid #404040;
   display: flex;
   justify-content: space-evenly;
 }
 
+.brush-list li{
+  display: inline-block;
+  padding: 10px;
+}
 .style{
   height: 140px;
   width: 100%;

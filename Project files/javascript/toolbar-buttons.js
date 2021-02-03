@@ -35,6 +35,18 @@ $(()=>{
     currentFunction = new ShadowBrush(contextReal, contextDraft);
   });
 
+  $("#brush4").click(() => {
+    currentFunction = new MarkerBrush(contextReal, contextDraft);
+  });
+
+  $("#brush5").click(() => {
+    currentFunction = new SprayBrush(contextReal, contextDraft);
+  });
+
+  $("#brush6").click(() => {
+    currentFunction = new ColouredPixelsBrush(contextReal, contextDraft);
+  });
+
   $("#straight-line").click(() => {
     if (currentDropDown == "straight-line") {
       currentDropDown = null
