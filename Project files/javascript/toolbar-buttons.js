@@ -146,7 +146,6 @@ $(()=>{
   });
 
   $("#straight-line").click(() => {
-    console.log(currentFunction)
     currentFunction = new DrawingStraightLine(contextReal, contextDraft);
   });
 
