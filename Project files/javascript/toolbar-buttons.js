@@ -176,4 +176,105 @@ $(()=>{
   // $("#drawing-rectangle").click(() => {
   //   currentFunction = new DrawingRectangle(contextReal, contextDraft);
   // });
+
+  // Instuctions display text
+  // Draw Lines
+  $("#draw").hover(function(){
+    $(".instructions").html("Click and drag to draw lines");
+  });
+  $("#brush1").hover(function(){
+    $(".instructions").html("Pencil");
+  });
+  $("#brush2").hover(function(){
+    $(".instructions").html("Marker");
+  });
+  $("#brush3").hover(function(){
+    $(".instructions").html("With shadow");
+  });
+  $("#brush4").hover(function(){
+    $(".instructions").html("Crayon");
+  });
+  $("#brush5").hover(function(){
+    $(".instructions").html("Spray");
+  });
+  $("#brush6").hover(function(){
+    $(".instructions").html("Colored Pixels");
+  });
+
+  //Straight line
+  $("#straight-line").hover(function(){
+    $(".instructions").html("Click and drag to draw a straight line");
+  });
+
+  //Curve
+  $("#curve").hover(function(){
+    $(".instructions").html("Click and drag to draw a straight line, then click a point to create the curve");
+  });
+  $("#quad-curve").hover(function(){
+    $(".instructions").html("Click and drag to draw a straight line, then click a point to create the curve");
+  });
+  $("#bezier-curve").hover(function(){
+    $(".instructions").html("Click and drag to draw a straight line, then release and move the cursor, click to make the curve you like");
+  });
+
+  //Square
+  $("#square").hover(function(){
+    $(".instructions").html("Click and drag to draw a square");
+  });
+  $("#square1").hover(function(){
+    $(".instructions").html("Click and drag to draw a square");
+  });
+  $("#rect").hover(function(){
+    $(".instructions").html("Click and drag to draw a rectangle");
+  });
+
+  //Polygon
+  $("#polygon").hover(function(){
+    $(".instructions").html("Click and drag to draw a polygon");
+  });
+  $("#irr-polygon").hover(function(){
+    $(".instructions").html("Click and drag to draw a rectangle");
+  });
+  $("#regular-polygon").hover(function(){
+    $(".instructions").html("Enter the number of sides of the polygon, click and drag to draw a regular polygon");
+  });
+
+  //Circle
+  $("#circle").hover(function(){
+    $(".instructions").html("Click and drag to draw a circle");
+  });
+  $("#circle2").hover(function(){
+    $(".instructions").html("Click and drag to draw a circle");
+  });
+  $("#oval").hover(function(){
+    $(".instructions").html("Click and drag to draw an oval");
+  });
+
+  //Text
+  $("#text").hover(function(){
+    $(".instructions").html("Click and type");
+  });
+
+  //Eraser
+  $("#eraser").hover(function(){
+    $(".instructions").html("Click and drag to erase");
+  });
+
+  //Clear
+  $("#clear").hover(function(){
+    $(".instructions").html("Clear everything");
+  });
+
+  //Redo
+  $("#redo").hover(function(){
+    $(".instructions").html("Redo");
+  });
+  //Undo
+  $("#undo").hover(function(){
+    $(".instructions").html("Undo");
+  });
+  //Download
+  $("#download").hover(function(){
+    $(".instructions").html("Download your drawing to PNG file");
+  });
 })
