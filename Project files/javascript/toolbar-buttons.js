@@ -119,6 +119,16 @@ $(()=>{
     // $(".eraser").animate({height:'toggle'},{duration:600})
   });
 
+  $("#download").click((e) => {
+    let image = canvasReal.toDataURL();
+    let tempLink = document.createElement("a");
+    tempLink.download = "image.png";
+    tempLink.href = image;
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+  })
+
   $("#draw").click(() => {
     currentFunction = new DrawingLine(contextReal);
   });
