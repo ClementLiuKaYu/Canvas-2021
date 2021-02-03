@@ -72,6 +72,6 @@ $('canvas').on('mouseleave',(e) => {
 })
 
 $('canvas').on('mousemove',(e) => {
-    $('.cursor').css('left', 210 + e.offsetX - $('input[id="line-size"]').val()/2 +'px')
-    $('.cursor').css('top', e.offsetY - $('input[id="line-size"]').val()/2 + 10 + 'px')
+    $('.cursor').css('left', e.clientX - $('input[id="line-size"]').val()/2 +'px')
+    $('.cursor').css('top', e.clientY - $('input[id="line-size"]').val()/2 + 'px')
 })
