@@ -20,6 +20,7 @@ class SprayBrush extends PaintFunction {
     onMouseDown(lastPoint, event) {
         isDrawing = true;
         lastPoint = { x: event.clientX, y: event.clientY };
+        this.contextReal.fillStyle = lineColor;
     }
 
     onDragging(lastPoint, event) {
