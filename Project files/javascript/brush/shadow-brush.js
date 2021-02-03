@@ -8,11 +8,13 @@ class ShadowBrush extends PaintFunction {
     this.contextDraft = contextDraft;
     this.contextReal.lineWidth = 15;
     this.contextReal.lineJoin = contextReal.lineCap = 'round';
-    this.contextReal.shadowBlur = 10;
-    this.contextReal.shadowColor = 'rgb(0, 0, 0)';
+;
   }
 
   onMouseDown(lastPoint, event) {
+    this.contextReal.strokeStyle = lineColor;
+    this.contextReal.shadowBlur = 10;
+    this.contextReal.shadowColor = lineColor
     isDrawing = true;
     lastPoint = { x: event.clientX, y: event.clientY };
   }
@@ -35,6 +37,7 @@ class ShadowBrush extends PaintFunction {
 
   onMouseUp() {
     isDrawing = false;
-    points.length = 0;
+    lastPoint.length = 0;
+    this.contextReal.shadowBlur = 0;
   }
 }
