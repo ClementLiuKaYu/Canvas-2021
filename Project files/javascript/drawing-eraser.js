@@ -5,16 +5,16 @@ class Erase extends PaintFunction {
     }
   
     onMouseDown(coord, event) {
-      this.context.strokeStyle = //background color
+      this.context.strokeStyle = '#ffffff'
       this.context.lineJoin = "round";
       this.context.lineCap = "round";
-      this.context.lineWidth = // how big the line is 
+      this.context.lineWidth = $('input[id="line-size"]').val();
       this.context.beginPath();
       this.context.moveTo(coord[0], coord[1]);
       this.draw(coord[0], coord[1]);
-      cPush();
     }
     onDragging(coord, event) {
+      this.context.beginPath();
       this.draw(coord[0], coord[1]);
     }
   

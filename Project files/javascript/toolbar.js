@@ -108,6 +108,10 @@ $(()=>{
     currentFunction = new DrawingCircle(contextReal, contextDraft);
   });
 
+  $("#eraser").click(() => {
+    currentFunction = new Erase(contextReal, contextDraft);
+  });
+
   // $("#drawing-rectangle").click(() => {
   //   currentFunction = new DrawingRectangle(contextReal, contextDraft);
   // });
