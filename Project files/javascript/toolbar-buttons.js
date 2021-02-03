@@ -23,6 +23,18 @@ $(()=>{
     $(".brush").animate({height:'toggle'},{duration:600})
   });
 
+  $("#brush1").click(() => {
+    currentFunction = new PenBrush(contextReal, contextDraft);
+  });
+
+  $("#brush2").click(() => {
+    currentFunction = new CrayonBrush(contextReal, contextDraft);
+  });
+
+  $("#brush3").click(() => {
+    currentFunction = new ShadowBrush(contextReal, contextDraft);
+  });
+
   $("#straight-line").click(() => {
     if (currentDropDown == "straight-line") {
       currentDropDown = null
