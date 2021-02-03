@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
   
 var isDrawing, points = [ ];
   
-class DrawingTest extends PaintFunction {
+class PenBrush extends PaintFunction {
     constructor(contextReal,contextDraft) {
         super();
         this.contextReal = contextReal;
