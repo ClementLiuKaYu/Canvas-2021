@@ -55,8 +55,23 @@ pickr2.on('save',(...args) => {
 })
 
 // indicator box
-$('input[id="line-size"]').on('change',(e) => {
-    console.log($('input[id="line-size"]').val())
+$('input[id="line-size"]').on('mousemove',(e) => {
+    // console.log($('input[id="line-size"]').val())
     $('.ind-box').css('height',$('input[id="line-size"]').val())
     $('.ind-box').css('width',$('input[id="line-size"]').val())
+    $('.cursor').css('height',$('input[id="line-size"]').val())
+    $('.cursor').css('width',$('input[id="line-size"]').val())
+})
+
+$('canvas').on('mouseenter',(e) => {
+    $('.cursor').css('display','block')
+})
+
+$('canvas').on('mouseleave',(e) => {
+    $('.cursor').css('display','none')
+})
+
+$('canvas').on('mousemove',(e) => {
+    $('.cursor').css('left', 210 + e.offsetX - $('input[id="line-size"]').val()/2 +'px')
+    $('.cursor').css('top', e.offsetY - $('input[id="line-size"]').val()/2 + 10 + 'px')
 })
