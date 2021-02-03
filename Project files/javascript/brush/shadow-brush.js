@@ -1,4 +1,4 @@
-var isDrawing, points = [ ];
+var isDrawing, lastPoint = [];
 
 
 class ShadowBrush extends PaintFunction {
@@ -6,18 +6,18 @@ class ShadowBrush extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.contextReal.lineWidth = 20;
+    this.contextReal.lineWidth = 15;
     this.contextReal.lineJoin = contextReal.lineCap = 'round';
     this.contextReal.shadowBlur = 10;
     this.contextReal.shadowColor = 'rgb(0, 0, 0)';
   }
 
-  onMouseDown(points, event) {
+  onMouseDown(lastPoint, event) {
     isDrawing = true;
-    points.push({ x: event.clientX, y: event.clientY });
+    lastPoint = { x: event.clientX, y: event.clientY };
   }
 
-  onMouseMove(points, event) {
+  onMouseMove(lastPoint, event) {
     if (!isDrawing) return;
     this.contextDraft.clearRect(
       0,
@@ -25,15 +25,12 @@ class ShadowBrush extends PaintFunction {
       canvasDraft.width,
       canvasDraft.height
     )
-    points.push({ x: event.clientX, y: event.clientY });
-    
     this.contextReal.beginPath();
-    this.contextReal.moveTo(points[0].x, points[0].y);
-
-    for (var i = 1; i < points.length; i++) {
-      this.contextReal.lineTo(points[i].x, points[i].y);
-    }
+    this.contextReal.moveTo(lastPoint.x, lastPoint.y);
+    this.contextReal.lineTo(lastPoint[0], lastPoint[1]);
     this.contextReal.stroke();
+    
+    lastPoint = { x: event.clientX, y: event.clientY };
   }
 
   onMouseUp() {

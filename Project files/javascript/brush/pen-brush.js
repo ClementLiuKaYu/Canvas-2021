@@ -1,8 +1,4 @@
-function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-  
-var isDrawing, points = [ ];
+var isDrawing, lastPoint = [];
   
 class PenBrush extends PaintFunction {
     constructor(contextReal,contextDraft) {
@@ -12,40 +8,24 @@ class PenBrush extends PaintFunction {
         this.contextReal.lineJoin = this.contextReal.lineCap = 'round';
     }
 
-    onMouseDown(points,event) {
+    onMouseDown(lastPoint,event) {
         isDrawing = true;
-        points.push({ 
-            x: event.clientX, 
-            y: event.clientY,
-            width: getRandomInt(3, 5)
-        });
+        lastPoint = { x: event.clientX, y: event.clientY };
     }
-  
-    onMouseMove(points,event) {
-        if (!isDrawing) return;
-        this.contextDraft.clearRect(
-            0,
-            0,
-            canvasDraft.width,
-            canvasDraft.height
-        );
-        points.push({ 
-        x: event.clientX, 
-        y: event.clientY,
-        width: getRandomInt(3, 5)
-        });
-        for (var i = 1; i < points.length; i++) {
-            this.contextReal.beginPath();
-            this.contextReal.moveTo(points[i-1].x, points[i-1].y);
-            this.contextReal.lineWidth = points[i].width;
 
-            this.contextReal.lineTo(points[i].x, points[i].y);
-            this.contextReal.stroke();
-        }
+    onMouseMove(lastPoint,event) {
+        if (!isDrawing) return;
+
+        this.contextReal.beginPath();
+        this.contextReal.moveTo(lastPoint.x, lastPoint.y);
+        this.contextReal.lineTo(lastPoint[0], lastPoint[1]);
+        this.contextReal.stroke();
+        
+        lastPoint = { x: event.clientX, y: event.clientY };
     }
-  
+
     onMouseUp() {
-      isDrawing = false;
-      points.length = 0;
+        isDrawing = false;
     }
+
 }
