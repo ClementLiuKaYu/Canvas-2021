@@ -67,6 +67,14 @@ $(()=>{
     $(".curve").animate({height:'toggle'},{duration:600})
   });
 
+  $("#quad-curve").click(() => {
+    currentFunction = new DrawingQuadCurve(contextReal, contextDraft);
+  });
+
+  $("#bezier-curve").click(() => {
+    currentFunction = new DrawingBezierCurve(contextReal, contextDraft);
+  });
+
   $("#square").click(() => {
     if (currentDropDown == "square") {
       currentDropDown = null
@@ -87,6 +95,14 @@ $(()=>{
     $(".polygon").animate({height:'toggle'},{duration:600})
   });
 
+  $("#regular-poly").click(() => {
+    currentFunction = new DrawingPolygon(contextReal, contextDraft);
+  });
+
+  $("#irr-poly").click(() => {
+    currentFunction = new DrawingIrrPolygon(contextReal, contextDraft);
+  });
+
   $("#circle").click(() => {
     if (currentDropDown == "circle") {
       currentDropDown = null
@@ -95,6 +111,14 @@ $(()=>{
       currentDropDown = "circle"
     }
     $(".circle").animate({height:'toggle'},{duration:600})
+  });
+
+  $("#circle2").click(() => {
+    currentFunction = new DrawingCircle(contextReal, contextDraft);
+  });
+
+  $("#oval").click(() => {
+    currentFunction = new DrawingOval(contextReal, contextDraft);
   });
 
   $("#eraser").click(() => {
@@ -106,6 +130,16 @@ $(()=>{
     }
     // $(".eraser").animate({height:'toggle'},{duration:600})
   });
+
+  $("#download").click((e) => {
+    let image = canvasReal.toDataURL();
+    let tempLink = document.createElement("a");
+    tempLink.download = "image.png";
+    tempLink.href = image;
+    document.body.appendChild(tempLink);
+    tempLink.click();
+    document.body.removeChild(tempLink);
+  })
 
   $("#draw").click(() => {
     currentFunction = new DrawingLine(contextReal);

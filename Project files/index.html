@@ -36,8 +36,8 @@
           </ul>
           </div>
           <div class="button-drop-down curve">
-            <div class="button" id="straight-line"><img src="./assets/curve.png" alt="curve" height="16px"></i></div>
-            <div class="button" id="straight-line"><i class="fas fa-bezier-curve fa-lg"></i></div>
+            <div class="button" id="quad-curve"><img src="./assets/curve.png" alt="curve" height="16px"></i></div>
+            <div class="button" id="bezier-curve"><i class="fas fa-bezier-curve fa-lg"></i></div>
           </div>
           <div class="buttons-row">
             <div class="button" id="square"><i class="far fa-square fa-lg"></i></div>
@@ -49,12 +49,12 @@
             <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
           </div>
           <div class="button-drop-down polygon">
-            <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
-            <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
+            <div class="button" id="regular-poly"><i class="fas fa-pencil-alt fa-lg"></i></div>
+            <div class="button" id="irr-poly"><i class="fas fa-pencil-alt fa-lg"></i></div>
           </div>
           <div class="button-drop-down circle">
-            <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
-            <div class="button" id="draw"><i class="fas fa-pencil-alt fa-lg"></i></div>
+            <div class="button" id="circle2"><i class="fas fa-pencil-alt fa-lg"></i></div>
+            <div class="button" id="oval"><i class="fas fa-pencil-alt fa-lg"></i></div>
           </div>
           <div class="buttons-row">
             <div class="button" id="eraser"><i class="fas fa-eraser fa-lg"></i></div>
@@ -62,7 +62,7 @@
             <div class="button" id=""></div>
           </div>
           <div class="buttons-row">
-            <div class="button" id=""></div>
+            <div class="button" id="download">dl</div>
             <div class="button" id=""></div>
             <div class="button" id=""></div>
           </div>
@@ -73,7 +73,7 @@
         <div class="fill-check"><p>Fill check:</p><input type="checkbox" id="fill-check"></div>
         <div class="fill-color"><p>Fill color:</p><div class="color-picker1"></div></div>
         <div class="line-color"><p>Line color:</p><div class="color-picker2"></div></div>
-        <div class="line-size"><p>Line size:</p><div class="slider-container"><input type="range" min="1" max="50" value="1" step="1" class="slider" id="line-size"></div></div>
+        <div class="line-size"><p>Line size:</p><div class="slider-container"><input type="range" min="1" max="50" value="5" step="1" class="slider" id="line-size"></div></div>
         <div class="size-indicator"><div class="ind-box"></div></div>
       </div>
 
@@ -88,6 +88,8 @@
         <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
       </div>
     </div>
+
+    <div class="cursor"></div>
 
     <!-- Scripts -->
     
@@ -115,7 +117,7 @@
     <script src="./javascript/brush/crayon-brush.js" type="text/javascript" async defer></script>
 
     <script src="./javascript/brush/shadow-brush.js" type="text/javascript" async defer></script>
-    
+
     <script src="./javascript/brush/marker-brush.js" type="text/javascript" async defer></script>
 
     <script src="./javascript/brush/spray-brush.js" type="text/javascript" async defer></script>
@@ -143,7 +145,10 @@
     <!-- The drawing circle functionality  -->
     <script src="./javascript/drawing-circle.js" type="text/javascript" async defer></script>
 
-    <!-- The drawing circle functionality  -->
+    <!-- The drawing oval functionality  -->
+    <script src="./javascript/drawing-oval.js" type="text/javascript" async defer></script>
+
+    <!-- The drawing eraser functionality  -->
     <script src="./javascript/drawing-eraser.js" type="text/javascript" async defer></script>
     
     <!-- The drawing rectangle functionality  -->
