@@ -77,6 +77,7 @@ class DrawingBezierCurve extends PaintFunction {
         this.contextReal.moveTo(this.origX,this.origY);
         this.contextReal.bezierCurveTo(this.beizCoord[0],this.beizCoord[1],coord[0],coord[1],this.finalX,this.finalY);
         this.contextReal.stroke();
+        addSnapshot();
       }
     }
     onMouseLeave() {}

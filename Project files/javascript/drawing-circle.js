@@ -51,6 +51,7 @@ class DrawingCircle extends PaintFunction {
         2 * Math.PI
         );
         $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
+        addSnapshot()
     }
       
     onMouseLeave() {}

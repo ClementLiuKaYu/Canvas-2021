@@ -19,7 +19,9 @@ class Erase extends PaintFunction {
     }
   
     onMouseMove() { }
-    onMouseUp() { }
+    onMouseUp() { 
+      addSnapshot();
+    }
     onMouseLeave() { }
     onMouseEnter() { }
   

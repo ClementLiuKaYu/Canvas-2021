@@ -129,7 +129,8 @@ class DrawingOval extends PaintFunction {
                 0,
                 2 * Math.PI
                 );
-                $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
+                $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke();
+                addSnapshot();
         }
     }
   
