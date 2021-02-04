@@ -46,6 +46,12 @@ $("#canvas-draft").mouseenter(function (e) {
   currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
+$("#textInput").keypress(function (e) {
+  if (e.which == 13) {
+    currentFunction.onKeyPress();
+  }
+})
+
 /** # Class (all classes will have these methods) #
 /*  ====================== */
 class PaintFunction {
@@ -56,4 +62,5 @@ class PaintFunction {
   onMouseUp() {}
   onMouseLeave() {}
   onMouseEnter() {}
+  onKeyPress() {}
 }
