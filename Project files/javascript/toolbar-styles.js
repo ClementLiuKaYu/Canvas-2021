@@ -63,14 +63,20 @@ $('input[id="line-size"]').on('mousemove',(e) => {
 })
 
 $('canvas').on('mouseenter',(e) => {
+    if(currentDropDown != "text")
     $('.cursor').css('display','block')
 })
 
 $('canvas').on('mouseleave',(e) => {
     $('.cursor').css('display','none')
+    $(".canvas").css("cursor","none");
 })
 
 $('canvas').on('mousemove',(e) => {
-    $('.cursor').css('left', e.clientX - $('input[id="line-size"]').val()/2 +'px')
-    $('.cursor').css('top', e.clientY - $('input[id="line-size"]').val()/2 + 'px')
+    if(currentDropDown == "text"){
+        $(".canvas").css("cursor","text");
+    }else{
+        $('.cursor').css('left', e.clientX - $('input[id="line-size"]').val()/2 +'px')
+        $('.cursor').css('top', e.clientY - $('input[id="line-size"]').val()/2 + 'px')
+    }
 })
