@@ -322,5 +322,4 @@ $(()=>{
   $("#download").hover(function(){
     $(".instructions").html("Download your drawings to PNG file");
   });
-
 })
