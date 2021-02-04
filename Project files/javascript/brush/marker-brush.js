@@ -5,7 +5,7 @@ class MarkerBrush extends PaintFunction {
         super();
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
-        this.contextReal.lineWidth = 3;
+        this.contextReal.lineWidth = $('input[id="line-size"]').val();
         this.contextReal.lineJoin = this.contextReal.lineCap = 'round';
     }
     onMouseDown(lastPoint, event) {

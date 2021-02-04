@@ -14,7 +14,7 @@ class SprayBrush extends PaintFunction {
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
         this.contextReal.lineJoin = this.contextReal.lineCap = 'round';
-        this.contextReal.lineWidth = 5;
+        this.contextReal.lineWidth = $('input[id="line-size"]').val();
     }
 
     onMouseDown(lastPoint, event) {
