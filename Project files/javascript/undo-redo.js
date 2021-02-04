@@ -27,6 +27,11 @@ function redo() {
         snapCount++;
         let canvasSnap = new Image();
         canvasSnap.src = imageArray[snapCount];
+        contextReal.clearRect(
+            0,
+            0,
+            contextReal.canvas.width,
+            contextReal.canvas.height);
         canvasSnap.onload = function () { contextReal.drawImage(canvasSnap, 0, 0); }
     }
 }
