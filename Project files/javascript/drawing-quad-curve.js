@@ -65,6 +65,7 @@ class DrawingQuadCurve extends PaintFunction {
         this.contextReal.moveTo(this.origX,this.origY);
         this.contextReal.quadraticCurveTo(coord[0],coord[1],this.finalX,this.finalY);
         this.contextReal.stroke();
+        addSnapshot();
     }
   }
   onMouseLeave() {}

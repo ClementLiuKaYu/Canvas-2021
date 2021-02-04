@@ -171,6 +171,14 @@ $(()=>{
     currentFunction = new Erase(contextReal, contextDraft);
   });
 
+  $("#undo").click(() => {
+    undo()
+  });
+
+  $("#redo").click(() => {
+    redo()
+  });
+
   $("#download").click((e) => {
     let image = canvasReal.toDataURL();
     let tempLink = document.createElement("a");

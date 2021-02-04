@@ -37,6 +37,7 @@ onMouseDown(coord, event){
     $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
     this.start = false;
     this.coords = [];
+    addSnapshot();
   }else{
     this.coords.push([coord[0],coord[1]])
   }
