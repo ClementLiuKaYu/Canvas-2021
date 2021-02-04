@@ -101,8 +101,10 @@
 
     <div class="canvas-container">
       <div class="canvas-inner-container">
-        <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
-        <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
+        <div class="canvas-background">
+          <canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
+          <canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
+        </div>
       </div>
     </div>
 
@@ -170,6 +172,9 @@
 
     <!-- The drawing eraser functionality  -->
     <script src="./javascript/drawing-eraser.js" type="text/javascript" async defer></script>
+
+    <!-- The drawing clear functionality  -->
+    <script src="./javascript/drawing-clear.js" type="text/javascript" async defer></script>
     
     <!-- Toolbar controller -->
     <script src="./javascript/toolbar-buttons.js" type="text/javascript" async defer></script>
