@@ -15,10 +15,9 @@ class DrawingText extends PaintFunction {
             "translateY(" +
             `${coord[1]}` +
             "px)translateX(" +
-            `${coord[0]}` +
+            `${coord[0]+210}` +
             "px)",
           padding: "0",
-          margin: "-10px -200px",
         });
   
         this.origX = coord[0];
@@ -26,7 +25,7 @@ class DrawingText extends PaintFunction {
         this.contextDraft.fillStyle = "black";
         this.contextDraft.font = "20px italic bold";
         let textContent = textInput.value;
-        textInput.style["z-index"] = 1;
+        textInput.style["z-index"] = 5;
         textInput.value = "";
   
         this.contextDraft.fillText(textContent, this.origX, this.origY);
@@ -40,8 +39,6 @@ class DrawingText extends PaintFunction {
         });
         this.contextReal.fillStyle = fillColor;
         this.contextReal.font =" 20px italic bold";
-  
-        console.log(canvasSettings.textSize);
         let textContent = textInput.value;
         textInput.style["z-index"] = 6;
         textInput.value = "";

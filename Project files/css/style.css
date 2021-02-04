@@ -280,3 +280,8 @@ body {
   display: none;
   position: absolute;
 }
+
+#textInput{
+  position: absolute;
+  z-index: 5;
+}
