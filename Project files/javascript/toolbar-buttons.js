@@ -188,7 +188,7 @@ $(()=>{
     tempLink.click();
     document.body.removeChild(tempLink);
   })
-
+  
   $("#draw").click(() => {
     currentFunction = new DrawingLine(contextReal);
   });
