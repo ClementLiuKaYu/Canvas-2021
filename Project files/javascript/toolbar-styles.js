@@ -56,7 +56,6 @@ pickr2.on('save',(...args) => {
 
 // indicator box
 $('input[id="line-size"]').on('mousemove',(e) => {
-    // console.log($('input[id="line-size"]').val())
     $('.ind-box').css('height',$('input[id="line-size"]').val())
     $('.ind-box').css('width',$('input[id="line-size"]').val())
     $('.cursor').css('height',$('input[id="line-size"]').val())

@@ -24,8 +24,8 @@ function undo() {
   }
 }
 canvasDraft.addEventListener("click", function (e){
-  mouseX = e.pageX - canvasDraft.offsetLeft;
-  mouseY = e.pageY - canvasDraft.offsetTop;
+  mouseX = e.offsetX - canvasDraft.offsetLeft;
+  mouseY = e.offsetY - canvasDraft.offsetTop;
   startingX = mouseX;
   
   recentWords = [];

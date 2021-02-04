@@ -23,6 +23,10 @@ $(()=>{
     $(".brush").animate({height:'toggle'},{duration:600})
   });
 
+  $("#draw").click(() => {
+    currentFunction = new DrawingLine(contextReal);
+  });
+
   $("#brush1").click(() => {
     currentFunction = new PenBrush(contextReal, contextDraft);
   });
@@ -54,7 +58,10 @@ $(()=>{
       $(".button-drop-down").animate({height:'hide'},{duration:600})
       currentDropDown = "straight-line"
     }
-    // $(".straight-line").animate({height:'toggle'},{duration:600})
+  });
+
+  $("#straight-line").click(() => {
+    currentFunction = new DrawingStraightLine(contextReal, contextDraft);
   });
 
   $("#curve").click(() => {
@@ -65,6 +72,10 @@ $(()=>{
       currentDropDown = "curve"
     }
     $(".curve").animate({height:'toggle'},{duration:600})
+  });
+
+  $("#curve").click(() => {
+    currentFunction = new DrawingQuadCurve(contextReal, contextDraft);
   });
 
   $("#quad-curve").click(() => {
@@ -85,6 +96,10 @@ $(()=>{
     $(".square").animate({height:'toggle'},{duration:600})
   });
 
+  $("#square").click(() => {
+    currentFunction = new DrawingRectangle(contextReal, contextDraft);
+  });
+
   $("#polygon").click(() => {
     if (currentDropDown == "polygon") {
       currentDropDown = null
@@ -93,6 +108,10 @@ $(()=>{
       currentDropDown = "polygon"
     }
     $(".polygon").animate({height:'toggle'},{duration:600})
+  });
+
+  $("#polygon").click(() => {
+    currentFunction = new DrawingIrrPolygon(contextReal, contextDraft);
   });
 
   $("#regular-poly").click(() => {
@@ -113,12 +132,30 @@ $(()=>{
     $(".circle").animate({height:'toggle'},{duration:600})
   });
 
+  $("#circle").click(() => {
+    currentFunction = new DrawingCircle(contextReal, contextDraft);
+  });
+
   $("#circle2").click(() => {
     currentFunction = new DrawingCircle(contextReal, contextDraft);
   });
 
   $("#oval").click(() => {
     currentFunction = new DrawingOval(contextReal, contextDraft);
+  });
+
+  $("#text").click(() => {
+    if (currentDropDown == "text") {
+      currentDropDown = null
+    }else{
+      $(".button-drop-down").animate({height:'hide'},{duration:600})
+      currentDropDown = "text"
+    }
+  });
+
+  $("#text").click(() => {
+    currentFunction = new Erase(contextReal, contextDraft);
+    $(".canvas").css("cursor","text");
   });
 
   $("#eraser").click(() => {
@@ -128,7 +165,10 @@ $(()=>{
       $(".button-drop-down").animate({height:'hide'},{duration:600})
       currentDropDown = "eraser"
     }
-    // $(".eraser").animate({height:'toggle'},{duration:600})
+  });
+
+  $("#eraser").click(() => {
+    currentFunction = new Erase(contextReal, contextDraft);
   });
 
   $("#download").click((e) => {
@@ -140,43 +180,6 @@ $(()=>{
     tempLink.click();
     document.body.removeChild(tempLink);
   })
-
-  $("#draw").click(() => {
-    currentFunction = new DrawingLine(contextReal);
-  });
-
-  $("#straight-line").click(() => {
-    currentFunction = new DrawingStraightLine(contextReal, contextDraft);
-  });
-
-  $("#curve").click(() => {
-    currentFunction = new DrawingQuadCurve(contextReal, contextDraft);
-  });
-
-  $("#square").click(() => {
-    currentFunction = new DrawingRectangle(contextReal, contextDraft);
-  });
-
-  $("#polygon").click(() => {
-    currentFunction = new DrawingPolygon(contextReal, contextDraft);
-  });
-
-  $("#circle").click(() => {
-    currentFunction = new DrawingCircle(contextReal, contextDraft);
-  });
-
-  $("#text").click(() => {
-    currentFunction = new Erase(contextReal, contextDraft);
-    $(".canvas").css("cursor","text");
-  });
-
-  $("#eraser").click(() => {
-    currentFunction = new Erase(contextReal, contextDraft);
-  });
-
-  // $("#drawing-rectangle").click(() => {
-  //   currentFunction = new DrawingRectangle(contextReal, contextDraft);
-  // });
 
   // Instructions
   $("#draw").hover(function(){
@@ -257,6 +260,4 @@ $(()=>{
   $("#download").hover(function(){
     $(".instructions").html("Download your drawings to PNG file");
   });
-
-  $
 })

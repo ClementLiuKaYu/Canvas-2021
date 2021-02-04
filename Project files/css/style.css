@@ -232,6 +232,13 @@ body {
   overflow: auto;
 }
 
+.canvas-background{
+  background-color: #ffffff;
+  /* background-image: url(../assets/transparent.png); */
+  height: 720px;
+  width: 1280px;
+}
+
 .canvas {
   border: 1px #000000;
   background-color: transparent;
