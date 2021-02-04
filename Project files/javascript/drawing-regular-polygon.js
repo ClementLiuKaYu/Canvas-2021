@@ -73,7 +73,8 @@ class DrawingPolygon extends PaintFunction {
           );
         }
       }
-      $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke()
+      $('input[id="fill-check"]')[0].checked ? this.contextReal.fill() : this.contextReal.stroke();
+      addSnapshot();
     }
 
     onMouseLeave() {}
