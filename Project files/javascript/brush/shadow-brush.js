@@ -6,7 +6,7 @@ class ShadowBrush extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    this.contextReal.lineWidth = 15;
+    this.contextReal.lineWidth = $('input[id="line-size"]').val();
     this.contextReal.lineJoin = contextReal.lineCap = 'round';
 ;
   }
